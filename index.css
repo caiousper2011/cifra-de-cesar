@@ -140,6 +140,7 @@ section.text-container {
   padding: 8px;
   outline: none;
   font-family: 'Roboto Mono', monospace;
+  text-transform: uppercase;
 }
 
 section.controls-container {

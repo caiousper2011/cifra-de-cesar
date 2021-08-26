@@ -6,16 +6,32 @@ const alphabetCharacters = [...Array(26)]
 const textToBeConvertedElement = document.querySelector('#to-be-converted');
 const convertedTextElement = document.querySelector('#converted-text');
 const btnConvert = document.querySelector('#btn-convert');
-const encodeNumber = 8;
+
 //TODO: remove below before comment
 textToBeConvertedElement.value = 'abcd efgh ijklm\nsdf sdfsd fsdf\nsds dfsdf';
-btnConvert.addEventListener('click', () => {
+
+const encodeNumber = () => {
+  const encodeNumberElement = document.querySelector('#encode-selection');
+
+  const number = Number(encodeNumberElement.value) || 1;
+  encodeNumberElement.value = number;
+
+  return {
+    number,
+    element: encodeNumberElement,
+  };
+};
+
+const btnConvertAction = () => {
   const textToBeConverted = textToBeConvertedElement.value;
   const textWithNoAccentedWords = replaceAccentedWords(textToBeConverted);
-  const convertedText = convert(textWithNoAccentedWords).join('');
+  const convertedText = convert(
+    textWithNoAccentedWords,
+    encodeNumber().number,
+  ).join('');
   convertedTextElement.value = convertedText;
   console.log(convertedText);
-});
+};
 
 const getWordIndex = (word) =>
   alphabetCharacters.findIndex((alphabetWord) => word === alphabetWord);
@@ -40,7 +56,7 @@ const replaceAccentedWords = (text) => {
   );
 };
 
-const getNextWordBasedOnEncodeNumber = (wordIndex) => {
+const getNextWordBasedOnEncodeNumber = (wordIndex, encodeNumber) => {
   const nextWord = wordIndex + encodeNumber;
 
   return nextWord >= alphabetCharacters.length
@@ -48,16 +64,18 @@ const getNextWordBasedOnEncodeNumber = (wordIndex) => {
     : alphabetCharacters[nextWord];
 };
 
-const convert = (text) => {
+const convert = (text, encodeNumber) => {
   const splitedText = text.split('');
-
+  console.log(encodeNumber);
   return splitedText
     .map((word) => word.toUpperCase())
     .map((currentWorld) => {
       const currentWordIndex = getWordIndex(currentWorld);
 
       return currentWordIndex !== -1
-        ? getNextWordBasedOnEncodeNumber(currentWordIndex)
+        ? getNextWordBasedOnEncodeNumber(currentWordIndex, encodeNumber)
         : currentWorld;
     });
 };
+
+btnConvert.addEventListener('click', btnConvertAction);

@@ -13,4 +13,4 @@ Esta aplicação tem a finalizade de criptografar textos usando o modelo Cifra d
 
 ## Imagem do projeto
 
-![App Screenshot](https://raw.githubusercontent.com/caiousper2011/txt2msg/master/assets/project_running.png)
+![App Screenshot](https://raw.githubusercontent.com/caiousper2011/cifra-de-cesar/master/assets/cifra-de-cesar.png)

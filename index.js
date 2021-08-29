@@ -1,40 +1,17 @@
 'use strict';
+const BEGIN_ENCODE_NUMBER_AT = 1;
 const alphabetCharacters = [...Array(26)]
   .map((_, i) => i + 65)
   .map((number) => String.fromCharCode(number));
 
-const textToBeConvertedElement = document.querySelector('#to-be-converted');
-const convertedTextElement = document.querySelector('#converted-text');
-const btnConvert = document.querySelector('#btn-convert');
+const encodeTextElement = document.querySelector('#txt-encode');
+const decodeTxtElement = document.querySelector('#txt-decode');
+const btnEncode = document.querySelector('#btn-encode');
+const encodeNumberElement = document.querySelector('#encode-selection');
+let encodeNumberAt = 1;
 
-//TODO: remove below before comment
-textToBeConvertedElement.value = 'abcd efgh ijklm\nsdf sdfsd fsdf\nsds dfsdf';
-
-const encodeNumber = () => {
-  const encodeNumberElement = document.querySelector('#encode-selection');
-
-  const number = Number(encodeNumberElement.value) || 1;
-  encodeNumberElement.value = number;
-
-  return {
-    number,
-    element: encodeNumberElement,
-  };
-};
-
-const btnConvertAction = () => {
-  const textToBeConverted = textToBeConvertedElement.value;
-  const textWithNoAccentedWords = replaceAccentedWords(textToBeConverted);
-  const convertedText = convert(
-    textWithNoAccentedWords,
-    encodeNumber().number,
-  ).join('');
-  convertedTextElement.value = convertedText;
-  console.log(convertedText);
-};
-
-const getWordIndex = (word) =>
-  alphabetCharacters.findIndex((alphabetWord) => word === alphabetWord);
+encodeTextElement.value = 'ab cd ef gh';
+decodeTxtElement.value = 'hi jk lm';
 
 const expressionsToReplaceAccentedWords = () => {
   const charactersToBeReplaced = { A: '[ÀÁÂÃÄÅàáâãäå]', E: '[ÈÉÊË]', C: '[Ç]' };
@@ -59,23 +36,49 @@ const replaceAccentedWords = (text) => {
 const getNextWordBasedOnEncodeNumber = (wordIndex, encodeNumber) => {
   const nextWord = wordIndex + encodeNumber;
 
-  return nextWord >= alphabetCharacters.length
-    ? alphabetCharacters[nextWord - alphabetCharacters.length]
-    : alphabetCharacters[nextWord];
+  if (nextWord >= alphabetCharacters.length) {
+    return alphabetCharacters[nextWord - alphabetCharacters.length];
+  }
+
+  return alphabetCharacters[nextWord];
 };
 
-const convert = (text, encodeNumber) => {
-  const splitedText = text.split('');
-  console.log(encodeNumber);
-  return splitedText
-    .map((word) => word.toUpperCase())
-    .map((currentWorld) => {
-      const currentWordIndex = getWordIndex(currentWorld);
+const getWordIndex = (word) =>
+  alphabetCharacters.findIndex((alphabetWord) => word === alphabetWord);
 
-      return currentWordIndex !== -1
-        ? getNextWordBasedOnEncodeNumber(currentWordIndex, encodeNumber)
-        : currentWorld;
-    });
+const encode = (text, encodeNumber) => {
+  return text.replace(/./gi, (word) => {
+    const currentWordIndex = getWordIndex(word);
+
+    if (currentWordIndex !== -1) {
+      return getNextWordBasedOnEncodeNumber(currentWordIndex, encodeNumber);
+    }
+
+    return word;
+  });
 };
 
-btnConvert.addEventListener('click', btnConvertAction);
+const encodeCharacteres = () => {
+  const text = encodeTextElement.value;
+  const formattedText = prepareText(text);
+  const convertedText = encode(formattedText, encodeNumberAt);
+
+  decodeTxtElement.value = convertedText;
+};
+
+const prepareText = (text) => {
+  const textFormattedToUpperCase = text.toUpperCase();
+  return replaceAccentedWords(textFormattedToUpperCase);
+};
+
+const init = () => {
+  encodeNumberElement.setAttribute('max', alphabetCharacters.length);
+  encodeNumberElement.setAttribute('value', BEGIN_ENCODE_NUMBER_AT);
+  btnEncode.addEventListener('click', encodeCharacteres);
+  encodeNumberElement.addEventListener(
+    'change',
+    ({ target: { value } }) => (encodeNumberAt = Number(value)),
+  );
+};
+
+init();

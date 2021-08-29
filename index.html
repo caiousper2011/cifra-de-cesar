@@ -8,6 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="index.css" />
   <title>Encriptador de Cesar | Cifra de Cesar</title>
 </head>
@@ -30,23 +31,21 @@
           </header>
           <main class="content">
             <section class="text-container">
-              <header> Texto que será convertido</header>
-              <textarea id="to-be-converted" cols="30" rows="10"></textarea>
+              <textarea id="txt-encode" cols="30" rows="10"></textarea>
             </section>
 
             <section class="controls-container">
-              <header>
-                Controles
-              </header>
-              <div>
-                <input class="field-outline" type="number" id="encode-selection" placeholder="Selecione o ordem" min="1">
-                <button class="button-outline" id="btn-convert">CONVERTER</button>
-              </div>
+              <button class="field button-outline" id="btn-encode">
+                <i class="material-icons">chevron_right</i>
+              </button>
+              <input class="field field-outline" type="number" id="encode-selection" placeholder="Selecione o ordem" min="1">
+              <button class="field button-outline" id="btn-convert">
+                <i class="material-icons">chevron_left</i>
+              </button>
             </section>
 
             <section class="text-container">
-              <header>Texto convertido</header>
-              <textarea id="converted-text" cols="30" rows="10"></textarea>
+              <textarea id="txt-decode" cols="30" rows="10"></textarea>
             </section>
           </main>
         </section>

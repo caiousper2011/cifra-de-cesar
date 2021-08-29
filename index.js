@@ -7,10 +7,11 @@ const alphabetCharacters = [...Array(26)]
 const encodeTextElement = document.querySelector('#txt-encode');
 const decodeTxtElement = document.querySelector('#txt-decode');
 const btnEncode = document.querySelector('#btn-encode');
+const btnDecode = document.querySelector('#btn-decode');
 const encodeNumberElement = document.querySelector('#encode-selection');
 let encodeNumberAt = 1;
 
-encodeTextElement.value = 'ab cd ef gh';
+encodeTextElement.value = alphabetCharacters.join('');
 decodeTxtElement.value = 'hi jk lm';
 
 const expressionsToReplaceAccentedWords = () => {
@@ -43,6 +44,16 @@ const getNextWordBasedOnEncodeNumber = (wordIndex, encodeNumber) => {
   return alphabetCharacters[nextWord];
 };
 
+const getPreviousWordBasedOnEncodeNumber = (wordIndex, encodeNumber) => {
+  const previousWord = wordIndex - encodeNumber;
+
+  if (previousWord < 0) {
+    return alphabetCharacters[previousWord + alphabetCharacters.length];
+  }
+
+  return alphabetCharacters[previousWord];
+};
+
 const getWordIndex = (word) =>
   alphabetCharacters.findIndex((alphabetWord) => word === alphabetWord);
 
@@ -66,6 +77,27 @@ const encodeCharacteres = () => {
   decodeTxtElement.value = convertedText;
 };
 
+const decode = (text, encodeNumber) => {
+  return text.replace(/./gi, (word) => {
+    const currentWordIndex = getWordIndex(word);
+
+    if (currentWordIndex !== -1) {
+      return getPreviousWordBasedOnEncodeNumber(currentWordIndex, encodeNumber);
+    }
+
+    return word;
+  });
+};
+
+const decodeCharacteres = () => {
+  const text = decodeTxtElement.value;
+  const formattedText = prepareText(text);
+  console.log(formattedText);
+  const convertedText = decode(formattedText, encodeNumberAt);
+
+  encodeTextElement.value = convertedText;
+};
+
 const prepareText = (text) => {
   const textFormattedToUpperCase = text.toUpperCase();
   return replaceAccentedWords(textFormattedToUpperCase);
@@ -75,6 +107,7 @@ const init = () => {
   encodeNumberElement.setAttribute('max', alphabetCharacters.length);
   encodeNumberElement.setAttribute('value', BEGIN_ENCODE_NUMBER_AT);
   btnEncode.addEventListener('click', encodeCharacteres);
+  btnDecode.addEventListener('click', decodeCharacteres);
   encodeNumberElement.addEventListener(
     'change',
     ({ target: { value } }) => (encodeNumberAt = Number(value)),

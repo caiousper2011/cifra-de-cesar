@@ -9,6 +9,7 @@ const decodeTxtElement = document.querySelector('#txt-decode');
 const btnEncode = document.querySelector('#btn-encode');
 const btnDecode = document.querySelector('#btn-decode');
 const encodeNumberElement = document.querySelector('#encode-selection');
+const importFileElement = document.querySelector('#input-import-file');
 let encodeNumberAt = 1;
 
 encodeTextElement.value = alphabetCharacters.join('');
@@ -92,7 +93,6 @@ const decode = (text, encodeNumber) => {
 const decodeCharacteres = () => {
   const text = decodeTxtElement.value;
   const formattedText = prepareText(text);
-  console.log(formattedText);
   const convertedText = decode(formattedText, encodeNumberAt);
 
   encodeTextElement.value = convertedText;
@@ -103,7 +103,17 @@ const prepareText = (text) => {
   return replaceAccentedWords(textFormattedToUpperCase);
 };
 
+const importFileText = async ({
+  target: {
+    files: [file],
+  },
+}) => {
+  const text = await file.text();
+  encodeTextElement.value = text;
+};
+
 const init = () => {
+  importFileElement.addEventListener('change', importFileText);
   encodeNumberElement.setAttribute('max', alphabetCharacters.length);
   encodeNumberElement.setAttribute('value', BEGIN_ENCODE_NUMBER_AT);
   btnEncode.addEventListener('click', encodeCharacteres);

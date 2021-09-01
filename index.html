@@ -16,6 +16,10 @@
 <body>
   <header>
     <h3>Encriptador de Cesar</h3>
+    <label class="field button button-outline white" for="input-import-file">
+      importar texto
+    </label>
+    <input type="file" id="input-import-file" accept=".txt">
   </header>
   <main>
     <div class="backdrop">
@@ -35,11 +39,11 @@
             </section>
 
             <section class="controls-container">
-              <button class="field button-outline" id="btn-encode">
+              <button class="field button button-outline" id="btn-encode">
                 <i class="material-icons">chevron_right</i>
               </button>
               <input class="field field-outline" type="number" id="encode-selection" placeholder="Selecione o ordem" min="1">
-              <button class="field button-outline" id="btn-decode">
+              <button class="field button button-outline" id="btn-decode">
                 <i class="material-icons">chevron_left</i>
               </button>
             </section>

@@ -44,22 +44,34 @@ body {
   border-radius: var(--shape);
   background: transparent;
   cursor: pointer;
-  transition: 'background-color' 0.2s;
+  transition: ease-in background-color 0.2s;
   outline: none;
 }
 
-button.button-outline {
+.button.button-outline {
   cursor: pointer;
 }
 
-button.button-outline:hover,
-button.button-outline:active {
+.button.button-outline:hover,
+.button.button-outline:active {
   background: var(--purple-400);
   color: var(--purple-100);
   box-shadow: var(--elevation-3);
 }
 
-button.button-outline:active {
+.button.button-outline.white {
+  border: solid 1px var(--white);
+  color: var(--white);
+}
+
+.button.button-outline.white:hover,
+.button.button-outline.white:active {
+  background: var(--white);
+  color: var(--purple-400);
+  box-shadow: var(--elevation-3);
+}
+
+.button.button-outline:active {
   filter: brightness(0.9);
 }
 
@@ -74,14 +86,21 @@ input.field-outline:focus {
 }
 
 body > header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  padding: calc(var(--spacing) * 3);
+  padding: calc(var(--spacing) * 2);
   background: var(--purple-400);
   color: var(--white);
   box-shadow: var(--elevation-3);
+}
+
+header > #input-import-file {
+  display: none;
 }
 
 body > main {
@@ -195,7 +214,7 @@ section.controls-container > * {
   border-radius: 0;
 }
 
-section.controls-container > button {
+section.controls-container > .button {
   display: flex;
   align-items: center;
   justify-content: center;

@@ -1,11 +1,3 @@
-## Installation
-
-Install cifra-de-cesar with yarn
-
-```bash
-  yarn
-  yarn dev
-```
 
 # Encriptador de Cesar
 

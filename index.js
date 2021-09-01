@@ -12,9 +12,6 @@ const encodeNumberElement = document.querySelector('#encode-selection');
 const importFileElement = document.querySelector('#input-import-file');
 let encodeNumberAt = 1;
 
-encodeTextElement.value = alphabetCharacters.join('');
-decodeTxtElement.value = 'hi jk lm';
-
 const expressionsToReplaceAccentedWords = () => {
   const charactersToBeReplaced = { A: '[ÀÁÂÃÄÅàáâãäå]', E: '[ÈÉÊË]', C: '[Ç]' };
   return Object.entries(charactersToBeReplaced).reduce(

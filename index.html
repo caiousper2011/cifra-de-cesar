@@ -16,10 +16,6 @@
 <body>
   <header>
     <h3>Encriptador de Cesar</h3>
-    <label class="field button button-outline white" for="input-import-file">
-      importar texto
-    </label>
-    <input type="file" id="input-import-file" accept=".txt">
   </header>
   <main>
     <div class="backdrop">
@@ -55,6 +51,15 @@
         </section>
       </div>
     </div>
+    <section class="alphabet-container">
+      <select class="field field-outline" type="text" id="alphabet-txt">
+        <option value="">Selecione um alfabeto</option>
+      </select>
+      <label class="field button button-outline" for="input-import-file">
+        importar texto
+      </label>
+      <input type="file" id="input-import-file" accept=".txt">
+    </section>
   </main>
 </body>
 

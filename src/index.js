@@ -19,7 +19,7 @@ const alphabetSelected = ({ target: { value } }) => {
 
 const encodeCharacteres = () => {
   const text = encodeTextElement.value;
-  const formattedText = prepareText(text, alphabetCharacters);
+  const formattedText = cipher.prepareText(text, alphabetCharacters);
   const encodePrepared = cipher.encode(alphabetCharacters);
   const convertedText = encodePrepared(formattedText, encodeNumberAt);
 
@@ -28,20 +28,11 @@ const encodeCharacteres = () => {
 
 const decodeCharacteres = () => {
   const text = decodeTxtElement.value;
-  const formattedText = prepareText(text, alphabetCharacters);
+  const formattedText = cipher.prepareText(text, alphabetCharacters);
   const decodePrepared = cipher.decode(alphabetCharacters);
   const convertedText = decodePrepared(formattedText, encodeNumberAt);
 
   encodeTextElement.value = convertedText;
-};
-
-const prepareText = (text, selectedAlphabet) => {
-  const { replacers } = cipher.alphabets.find(
-    ({ value }) => value == selectedAlphabet.join("")
-  );
-  const textFormattedToUpperCase = text.toUpperCase();
-
-  return cipher.replaceAccentedWords(textFormattedToUpperCase, replacers);
 };
 
 const importFileText = async ({

@@ -47,6 +47,10 @@ const getWordIndex = (alphabet, word) =>
   alphabet.findIndex((alphabetWord) => word === alphabetWord);
 
 const encode = (alphabet) => (text, encodeNumber) => {
+  if (typeof alphabet !== "object" || !text) {
+    throw new TypeError("wrong argument");
+  }
+
   return text.replace(/./gi, (word) => {
     const currentWordIndex = getWordIndex(alphabet, word);
 
@@ -78,11 +82,21 @@ const decode = (alphabet) => (text, encodeNumber) => {
   });
 };
 
+const prepareText = (text, selectedAlphabet) => {
+  const { replacers } = cipher.alphabets.find(
+    ({ value }) => value == selectedAlphabet.join("")
+  );
+  const textFormattedToUpperCase = text.toUpperCase();
+
+  return cipher.replaceAccentedWords(textFormattedToUpperCase, replacers);
+};
+
 const cipher = {
   encode,
   decode,
   alphabets,
   replaceAccentedWords,
+  prepareText,
 };
 
 export default cipher;

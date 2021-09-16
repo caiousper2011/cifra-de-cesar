@@ -99,10 +99,6 @@ body > header {
   box-shadow: var(--elevation-3);
 }
 
-header > #input-import-file {
-  display: none;
-}
-
 body > main {
   display: flex;
   width: 100vw;
@@ -223,4 +219,25 @@ section.controls-container > .button {
 
 section.controls-container > * + * {
   border-top: solid 1px var(--purple-400);
+}
+
+section.alphabet-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: var(--paper);
+  width: 100%;
+  padding: var(--spacing) calc(var(--spacing) * 2);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing);
+}
+
+section.alphabet-container > select {
+  flex: 1;
+  text-transform: initial;
+}
+
+section.alphabet-container > #input-import-file {
+  display: none;
 }

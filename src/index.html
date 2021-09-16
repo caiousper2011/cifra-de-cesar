@@ -9,17 +9,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="style.css" />
   <title>Encriptador de Cesar | Cifra de Cesar</title>
 </head>
 
 <body>
   <header>
     <h3>Encriptador de Cesar</h3>
-    <label class="field button button-outline white" for="input-import-file">
-      importar texto
-    </label>
-    <input type="file" id="input-import-file" accept=".txt">
   </header>
   <main>
     <div class="backdrop">
@@ -55,9 +51,18 @@
         </section>
       </div>
     </div>
+    <section class="alphabet-container">
+      <select class="field field-outline" type="text" id="alphabet-txt">
+        <option value="">Selecione um alfabeto</option>
+      </select>
+      <label class="field button button-outline" for="input-import-file">
+        importar texto
+      </label>
+      <input type="file" id="input-import-file" accept=".txt">
+    </section>
   </main>
 </body>
 
-<script defer src="index.js"></script>
+<script type="module" src="index.js"></script>
 
 </html>

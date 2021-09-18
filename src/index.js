@@ -13,7 +13,7 @@ let alphabetCharacters = [];
 let encodeNumberAt = 1;
 
 const alphabetSelected = ({ target: { value } }) => {
-  alphabetCharacters = value.split("");
+  alphabetCharacters = [...value];
   encodeNumberElement.setAttribute("max", alphabetCharacters.length);
 };
 

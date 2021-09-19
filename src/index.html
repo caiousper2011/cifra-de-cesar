@@ -34,7 +34,7 @@
               <textarea id="txt-encode" cols="30" rows="10"></textarea>
             </section>
 
-            <section class="controls-container">
+            <!-- <section class="controls-container">
               <button class="field button button-outline" id="btn-encode">
                 <i class="material-icons">chevron_right</i>
               </button>
@@ -42,7 +42,9 @@
               <button class="field button button-outline" id="btn-decode">
                 <i class="material-icons">chevron_left</i>
               </button>
-            </section>
+            </section> -->
+
+            <div id="root"></div>
 
             <section class="text-container">
               <textarea id="txt-decode" cols="30" rows="10"></textarea>
@@ -62,15 +64,18 @@
     </section>
   </main>
 
-  <div id="root"></div>
 </body>
 
-<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script defer src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 
-<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
-<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script defer crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script defer crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
 
-<script data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./app.js"></script>
-<script data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="index.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./context/CryptContext.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./components/Controls/Controls.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./components/FooterControls/FooterControls.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./app.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="index.js"></script>
+
 
 </html>

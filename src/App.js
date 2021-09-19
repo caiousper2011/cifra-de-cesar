@@ -1,15 +1,12 @@
+import Controls from "./components/Controls/Controls.js";
+import { CryptProvider } from "./context/CryptContext.js";
+import FooterControls from "./components/FooterControls/FooterControls.js";
+
 export const App = () => {
-  const [counter, setCounter] = React.useState(1);
-
-  const handleAlertUser = () => {
-    setCounter((old) => old + 1);
-  };
-
   return (
-    <React.Fragment>
-      <h1>Hello World!!!</h1>
-      <button onClick={handleAlertUser}>Alertar</button>
-      <h1>Total de alertas: {counter}</h1>
-    </React.Fragment>
+    <CryptProvider>
+      <Controls />
+      <FooterControls />
+    </CryptProvider>
   );
 };

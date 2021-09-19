@@ -1,4 +1,4 @@
-import { useCrypt } from "../../context/CryptContext.js";
+import { useCrypt } from "../../hooks/useCrypt";
 
 export const Controls = () => {
   const { encode, rotateNumber, handleRotateNumber, decode } = useCrypt();

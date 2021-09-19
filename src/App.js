@@ -1,12 +1,12 @@
 import Controls from "./components/Controls/Controls.js";
-import { CryptProvider } from "./context/CryptContext.js";
 import FooterControls from "./components/FooterControls/FooterControls.js";
+import ProvidersContainer from "./context/index.js";
 
 export const App = () => {
   return (
-    <CryptProvider>
+    <ProvidersContainer>
       <Controls />
       <FooterControls />
-    </CryptProvider>
+    </ProvidersContainer>
   );
 };

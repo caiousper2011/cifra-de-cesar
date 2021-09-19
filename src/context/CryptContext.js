@@ -1,4 +1,4 @@
-const CryptContext = React.createContext({
+export const CryptContext = React.createContext({
   rotateNumber: 1,
 });
 
@@ -26,10 +26,4 @@ export const CryptProvider = ({ children }) => {
       {children}
     </CryptContext.Provider>
   );
-};
-
-export const useCrypt = () => {
-  const context = React.useContext(CryptContext);
-
-  return context;
 };

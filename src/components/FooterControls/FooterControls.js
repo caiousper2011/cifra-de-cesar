@@ -1,16 +1,11 @@
-const FooterControls = () => {
+import AlphabetSelection from "../AlphabetSelection/AlphabetSelection.js";
+import ImportTextFile from "../ImportTextFile/ImportTextFile.js";
+
+const FooterControls = ({ handleEncodeText }) => {
   return (
     <section className="alphabet-container">
-      <select className="field field-outline" type="text" id="alphabet-txt">
-        <option value="">Selecione um alfabeto</option>
-      </select>
-      <label
-        className="field button button-outline"
-        htmlFor="input-import-file"
-      >
-        importar texto
-      </label>
-      <input type="file" id="input-import-file" accept=".txt" />
+      <AlphabetSelection />
+      <ImportTextFile handleEncodeText={handleEncodeText} />
     </section>
   );
 };

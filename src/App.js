@@ -1,7 +1,10 @@
 import Controls from "./components/Controls/Controls.js";
-import FooterControls from "./components/FooterControls/FooterControls.js";
+import HeaderPage from "./components/HeaderPage/HeaderPage.js";
 import Textarea from "./components/Textarea/Textarea.js";
+import NavBar from "./components/NavBar/NavBar.js";
 import ProvidersContainer from "./context/index.js";
+import FooterControls from "./components/FooterControls/FooterControls.js";
+import Notification from "./components/Notification/Notification.js";
 
 export const App = () => {
   const [encodeText, setEncodeText] = React.useState("");
@@ -9,42 +12,23 @@ export const App = () => {
 
   return (
     <ProvidersContainer>
-      <header>
-        <h3>Encriptador de Cesar</h3>
-      </header>
+      <NavBar />
       <main>
         <div className="backdrop">
           <div className="container">
             <section className="main-section">
-              <header className="header-page">
-                <h1 className="title">Encriptador Cifra de Cesar</h1>
-                <h6 className="description">
-                  Criptografe facilmente seus textos com apenas um clique!
-                </h6>
-              </header>
-
+              <HeaderPage />
               <main className="content">
                 <Textarea text={encodeText} handleText={setEncodeText} />
                 <Controls />
                 <Textarea text={decodeText} handleText={setDecodeText} />
-                <FooterControls />
               </main>
             </section>
           </div>
         </div>
-        <section className="alphabet-container">
-          <select className="field field-outline" type="text" id="alphabet-txt">
-            <option value="">Selecione um alfabeto</option>
-          </select>
-          <label
-            className="field button button-outline"
-            htmlFor="input-import-file"
-          >
-            importar texto
-          </label>
-          <input type="file" id="input-import-file" accept=".txt" />
-        </section>
+        <FooterControls handleEncodeText={setEncodeText} />
       </main>
+      <Notification />
     </ProvidersContainer>
   );
 };

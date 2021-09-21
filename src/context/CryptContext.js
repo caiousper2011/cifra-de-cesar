@@ -5,7 +5,6 @@ export const CryptContext = React.createContext({
 export const CryptProvider = ({ children }) => {
   const [rotateNumber, setRotateNumber] = React.useState(1);
 
-  console.log(rotateNumber);
   const encode = () => {
     console.log("encode");
   };

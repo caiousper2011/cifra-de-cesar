@@ -17,7 +17,8 @@ html {
   --elevation-3: 0px 3px 3px -2px rgb(0 0 0 / 20%),
     0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
   --max-container-width-lg: 1480px;
-  --warn: #f00;
+  --warn: #dc3545;
+  --success: #28a745;
 }
 
 h2 {
@@ -265,6 +266,10 @@ section.alphabet-container > #input-import-file {
 
 .notification-container.error {
   background: var(--warn);
+}
+
+.notification-container.success {
+  background: var(--success);
 }
 
 .notification-container.show {

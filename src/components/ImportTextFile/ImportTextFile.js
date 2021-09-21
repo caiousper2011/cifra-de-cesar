@@ -1,9 +1,8 @@
 import { useNotification } from "../../hooks/useNotification.js";
 
 const ImportTextFile = ({ handleEncodeText }) => {
-  const { showError } = useNotification();
+  const { showError, showSuccess } = useNotification();
 
-  showError("deu certo");
   const handleImportFile = async ({
     target: {
       files: [importedFile],
@@ -12,7 +11,9 @@ const ImportTextFile = ({ handleEncodeText }) => {
     try {
       const importedText = await importedFile.text();
       handleEncodeText(importedText);
+      showSuccess("Texto importado com sucesso!");
     } catch ({ message }) {
+      showError("Erro ao importar aquivo. Tente novamente");
       throw new Error(message);
     }
   };

@@ -1,7 +1,5 @@
-const NOTIFICATION_TYPE = {
-  ERROR: "error",
-  SUCCESS: "success",
-};
+import { NOTIFICATION_TYPE } from "../enum/notification-type.js";
+
 const TIMEOUT_DELAY = 400;
 
 export const NotificationContext = React.createContext({});

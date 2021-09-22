@@ -20,13 +20,21 @@ export const App = () => {
               <HeaderPage />
               <main className="content">
                 <Textarea text={encodeText} handleText={setEncodeText} />
-                <Controls />
+                <Controls
+                  encodeText={encodeText}
+                  setEncodeText={setEncodeText}
+                  decodeText={decodeText}
+                  setDecodeText={setDecodeText}
+                />
                 <Textarea text={decodeText} handleText={setDecodeText} />
               </main>
             </section>
           </div>
         </div>
-        <FooterControls handleEncodeText={setEncodeText} />
+        <FooterControls
+          setEncodeText={setEncodeText}
+          setDecodeText={setDecodeText}
+        />
       </main>
       <Notification />
     </ProvidersContainer>

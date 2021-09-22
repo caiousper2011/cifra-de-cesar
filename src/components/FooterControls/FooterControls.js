@@ -1,11 +1,14 @@
 import AlphabetSelection from "../AlphabetSelection/AlphabetSelection.js";
 import ImportTextFile from "../ImportTextFile/ImportTextFile.js";
 
-const FooterControls = ({ handleEncodeText }) => {
+const FooterControls = ({ setEncodeText, setDecodeText }) => {
   return (
     <section className="alphabet-container">
       <AlphabetSelection />
-      <ImportTextFile handleEncodeText={handleEncodeText} />
+      <ImportTextFile
+        setEncodeText={setEncodeText}
+        setDecodeText={setDecodeText}
+      />
     </section>
   );
 };

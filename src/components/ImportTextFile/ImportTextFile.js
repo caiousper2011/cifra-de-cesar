@@ -1,7 +1,9 @@
+import { useCrypt } from "../../hooks/useCrypt.js";
 import { useNotification } from "../../hooks/useNotification.js";
 
-const ImportTextFile = ({ handleEncodeText }) => {
+const ImportTextFile = ({ setDecodeText, setEncodeText }) => {
   const { showError, showSuccess } = useNotification();
+  const { encodeCharacters } = useCrypt();
 
   const handleImportFile = async ({
     target: {
@@ -10,11 +12,22 @@ const ImportTextFile = ({ handleEncodeText }) => {
   }) => {
     try {
       const importedText = await importedFile.text();
-      handleEncodeText(importedText);
-      showSuccess("Texto importado com sucesso!");
+
+      setEncodeText(importedText);
+      encodeText(importedText);
     } catch ({ message }) {
       showError("Erro ao importar aquivo. Tente novamente");
       throw new Error(message);
+    }
+  };
+
+  const encodeText = (text) => {
+    try {
+      const encodedText = encodeCharacters({ text });
+      setDecodeText(encodedText);
+      showSuccess("Texto codificado com sucesso!");
+    } catch (e) {
+      showError("Falha ao codificar o texto. Tente novamente");
     }
   };
 

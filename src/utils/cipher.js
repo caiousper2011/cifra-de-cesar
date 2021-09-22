@@ -1,26 +1,10 @@
-const alphabets = [
-  {
-    label: "Alfabeto latino - ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    value: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    replacers: { A: "[ÀÁÂÃÄÅàáâãäå]", E: "[ÈÉÊË]", C: "[Ç]" },
-  },
-  {
-    label: "Alfabeto grego - ΑΒΓΔΕΖΗΘΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ",
-    value: "ΑΒΓΔΕΖΗΘΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ",
-  },
-  {
-    label: "Alfabeto russo - АБВГДЕЁЖЗИЙІКЛМНОПРСТУФХЦЧШЩЪЫЬѢЭЮЯѲѴ",
-    value: "АБВГДЕЁЖЗИЙІКЛМНОПРСТУФХЦЧШЩЪЫЬѢЭЮЯѲѴ",
-  },
-];
-
 const expressionsToReplaceAccentedWords = (replacers) => {
   return Object.entries(replacers).reduce((regs, [key, expression]) => {
     return { ...regs, [key]: new RegExp(expression, "gi") };
   }, {});
 };
 
-const replaceAccentedWords = (text, replacers) => {
+export const replaceAccentedWords = (text, replacers) => {
   if (!replacers) {
     return text;
   }
@@ -46,7 +30,7 @@ const getPreviousWordBasedOnEncodeNumber = (
 const getWordIndex = (alphabet, word) =>
   alphabet.findIndex((alphabetWord) => word === alphabetWord);
 
-const encode = (alphabet) => (text, encodeNumber) => {
+export const encode = (text, encodeNumber, alphabet) => {
   if (typeof alphabet !== "object" || !text) {
     throw new TypeError("wrong argument");
   }
@@ -66,7 +50,7 @@ const encode = (alphabet) => (text, encodeNumber) => {
   });
 };
 
-const decode = (alphabet) => (text, encodeNumber) => {
+export const decode = (text, encodeNumber, alphabet) => {
   return text.replace(/./gi, (word) => {
     const currentWordIndex = getWordIndex(alphabet, word);
 
@@ -82,21 +66,15 @@ const decode = (alphabet) => (text, encodeNumber) => {
   });
 };
 
-const prepareText = (text, selectedAlphabet) => {
-  const { replacers } = cipher.alphabets.find(
+export const prepareText = (text, selectedAlphabet, alphabets) => {
+  if (!text) {
+    throw new Error("No text to prepare");
+  }
+
+  const { replacers } = alphabets.find(
     ({ value }) => value == selectedAlphabet.join("")
   );
   const textFormattedToUpperCase = text.toUpperCase();
 
   return cipher.replaceAccentedWords(textFormattedToUpperCase, replacers);
 };
-
-const cipher = {
-  encode,
-  decode,
-  alphabets,
-  replaceAccentedWords,
-  prepareText,
-};
-
-export default cipher;

@@ -2,7 +2,6 @@ const NOTIFICATION_TYPE = {
   ERROR: "error",
   SUCCESS: "success",
 };
-
 const TIMEOUT_DELAY = 400;
 
 export const NotificationContext = React.createContext({});

@@ -14,55 +14,44 @@
 </head>
 
 <body>
-  <header>
-    <h3>Encriptador de Cesar</h3>
-  </header>
-  <main>
-    <div class="backdrop">
-      <div class="container">
-        <section class="main-section">
-          <header class="header-page">
-            <h1 class="title">
-              Encriptador Cifra de Cesar
-            </h1>
-            <h6 class="description">
-              Criptografe facilmente seus textos com apenas um clique!
-            </h6>
-          </header>
-          <main class="content">
-            <section class="text-container">
-              <textarea id="txt-encode" cols="30" rows="10"></textarea>
-            </section>
-
-            <section class="controls-container">
-              <button class="field button button-outline" id="btn-encode">
-                <i class="material-icons">chevron_right</i>
-              </button>
-              <input class="field field-outline" type="number" id="encode-selection" placeholder="Selecione o ordem" min="1">
-              <button class="field button button-outline" id="btn-decode">
-                <i class="material-icons">chevron_left</i>
-              </button>
-            </section>
-
-            <section class="text-container">
-              <textarea id="txt-decode" cols="30" rows="10"></textarea>
-            </section>
-          </main>
-        </section>
-      </div>
-    </div>
-    <section class="alphabet-container">
-      <select class="field field-outline" type="text" id="alphabet-txt">
-        <option value="">Selecione um alfabeto</option>
-      </select>
-      <label class="field button button-outline" for="input-import-file">
-        importar texto
-      </label>
-      <input type="file" id="input-import-file" accept=".txt">
-    </section>
-  </main>
+  <div id="root"></div>
 </body>
 
-<script type="module" src="index.js"></script>
+<!-- libs -->
+<script defer src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script defer crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+<script defer crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+<!-- utils -->
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./utils/cipher.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./utils/alphabets.js"></script>
+
+<!-- enum -->
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./enum/alphabet.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./enum/notification-type.js"></script>
+
+<!-- context -->
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./context/NotificationContext.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./context/CryptContext.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./context/index.js"></script>
+
+<!-- hooks -->
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./hooks/useNotification.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./hooks/useCrypt.js"></script>
+
+<!-- components -->
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./components/Notification/Notification.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./components/Controls/Controls.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./components/ImportTextFile/ImportTextFile.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./components/AlphabetSelection/AlphabetSelection.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./components/FooterControls/FooterControls.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./components/Textarea/Textarea.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./components/HeaderPage/HeaderPage.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./components/NavBar/NavBar.js"></script>
+
+<!-- appication  -->
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./app.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="index.js"></script>
+
 
 </html>

@@ -17,6 +17,8 @@ html {
   --elevation-3: 0px 3px 3px -2px rgb(0 0 0 / 20%),
     0px 3px 4px 0px rgb(0 0 0 / 14%), 0px 1px 8px 0px rgb(0 0 0 / 12%);
   --max-container-width-lg: 1480px;
+  --warn: #dc3545;
+  --success: #28a745;
 }
 
 h2 {
@@ -31,7 +33,7 @@ h6 {
 
 body {
   overflow-x: hidden;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background: var(--background);
 }
 
@@ -85,7 +87,7 @@ input.field-outline:focus {
   padding: 0 calc(var(--spacing) * 4);
 }
 
-body > header {
+body > div > header {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -99,7 +101,7 @@ body > header {
   box-shadow: var(--elevation-3);
 }
 
-body > main {
+body > div > main {
   display: flex;
   width: 100vw;
   height: 100vh;
@@ -139,7 +141,7 @@ body > main {
 
 .header-page h6 {
   font-weight: 100;
-  font-family: 'Roboto Mono';
+  font-family: "Roboto Mono";
   color: var(--purple-200);
 }
 
@@ -157,6 +159,7 @@ section.text-container {
   max-width: 500px;
   height: 90%;
   max-height: 400px;
+  overflow: hidden;
 }
 
 section.text-container,
@@ -189,7 +192,7 @@ section.text-container,
   margin: 0px;
   padding: 8px;
   outline: none;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
   text-transform: uppercase;
 }
 
@@ -240,4 +243,59 @@ section.alphabet-container > select {
 
 section.alphabet-container > #input-import-file {
   display: none;
+}
+
+.notification-container {
+  width: calc(100% - var(--spacing) * 2);
+  height: 80px;
+  box-shadow: var(--elevation-3);
+  background: #242424;
+  color: var(--white);
+  position: fixed;
+  bottom: var(--spacing);
+  left: var(--spacing);
+  right: var(--spacing);
+  border-radius: var(--shape);
+  font-size: 18px;
+  color: var(--white);
+  font-weight: 300;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.notification-container.error {
+  background: var(--warn);
+}
+
+.notification-container.success {
+  background: var(--success);
+}
+
+.notification-container.show {
+  animation: 0.4s cubic-bezier(0, 1.03, 0.66, 1.1) notification_show;
+}
+
+.notification-container.hide {
+  animation: 0.4s cubic-bezier(0, 1.03, 0.66, 1.1) notification_hide forwards;
+}
+
+@keyframes notification_show {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes notification_hide {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
 }

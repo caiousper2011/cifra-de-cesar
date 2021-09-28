@@ -1,4 +1,5 @@
 import { useNotification } from "../../hooks/useNotification";
+import { classes } from "./Notification.styles.js";
 const CLOSE_DELAY = 5000;
 
 const Notification = () => {
@@ -21,8 +22,8 @@ const Notification = () => {
     <React.Fragment>
       {notification && (
         <div
-          className={`notification-container ${notificationType} ${
-            hideNotificationClass || "show"
+          className={`${classes.container} ${classes[notificationType]} ${
+            classes[hideNotificationClass || "show"]
           }`}
         >
           {notification}

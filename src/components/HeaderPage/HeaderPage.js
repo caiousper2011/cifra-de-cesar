@@ -1,8 +1,10 @@
+import { classes } from "./HeaderPage.styles.js";
+
 const HeaderPage = () => {
   return (
-    <header className="header-page">
-      <h1 className="title">Encriptador Cifra de Cesar</h1>
-      <h6 className="description">
+    <header className={classes.container}>
+      <h1 className={classes.title}>Encriptador Cifra de Cesar</h1>
+      <h6 className={classes.subtitle}>
         Criptografe facilmente seus textos com apenas um clique!
       </h6>
     </header>

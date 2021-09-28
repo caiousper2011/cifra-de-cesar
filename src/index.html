@@ -18,9 +18,20 @@
 </body>
 
 <!-- libs -->
-<script defer src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script defer crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
 <script defer crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+<script defer src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script defer crossorigin src="https://unpkg.com/jss/dist/jss.js"></script>
+<script defer data-plugins="transform-modules-umd" data-type="module" type="text/babel" crossorigin src="https://unpkg.com/jss-preset-default/dist/jss-preset-default.js"></script>
+
+
+
+<!-- styles -->
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./components/NavBar/NavBar.styles.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./components/HeaderPage/HeaderPage.styles.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./components/Textarea/Textarea.styles.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./components/Notification/Notification.styles.js"></script>
+<script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./components/Controls/Controls.styles.js"></script>
 
 <!-- utils -->
 <script defer data-plugins="transform-modules-umd" data-presets="react" data-type="module" type="text/babel" src="./utils/cipher.js"></script>

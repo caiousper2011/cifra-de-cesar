@@ -1,5 +1,6 @@
 import { useCrypt } from "../../hooks/useCrypt";
 import { useNotification } from "../../hooks/useNotification";
+import { classes } from "./Controls.styles.js";
 
 export const Controls = ({
   encodeText,
@@ -36,7 +37,7 @@ export const Controls = ({
   };
 
   return (
-    <section className="controls-container">
+    <section className={classes.container}>
       <button className="field button button-outline" onClick={handleEncode}>
         <i className="material-icons">chevron_right</i>
       </button>

@@ -1,4 +1,4 @@
 export const NOTIFICATION_TYPE = {
-  ERROR: "error",
-  SUCCESS: "success",
+  ERROR: 'error',
+  SUCCESS: 'success',
 };

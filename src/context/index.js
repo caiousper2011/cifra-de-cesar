@@ -1,12 +1,10 @@
-import { CryptProvider } from "./context/CryptContext.js";
-import { NotificationProvider } from "./NotificationContext.js";
+import { CryptProvider } from './CryptContext';
+import { NotificationProvider } from './NotificationContext';
 
-const ProvidersContainer = ({ children }) => {
-  return (
-    <NotificationProvider>
-      <CryptProvider>{children}</CryptProvider>
-    </NotificationProvider>
-  );
-};
+const ProvidersContainer = ({ children }) => (
+  <NotificationProvider>
+    <CryptProvider>{children}</CryptProvider>
+  </NotificationProvider>
+);
 
 export default ProvidersContainer;

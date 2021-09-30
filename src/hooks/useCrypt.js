@@ -1,7 +1,8 @@
-import { CryptContext } from "../context/CryptContext";
+import { useContext } from 'react';
+import { CryptContext } from '../context/CryptContext';
 
 export const useCrypt = () => {
-  const context = React.useContext(CryptContext);
+  const context = useContext(CryptContext);
 
   return context;
 };

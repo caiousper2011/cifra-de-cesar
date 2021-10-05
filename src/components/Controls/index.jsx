@@ -1,5 +1,6 @@
 import { useCrypt } from '../../hooks/useCrypt';
 import { useNotification } from '../../hooks/useNotification';
+import useStyles from './styles';
 
 export const Controls = ({
   encodeText,
@@ -7,6 +8,7 @@ export const Controls = ({
   decodeText,
   setDecodeText,
 }) => {
+  const classes = useStyles();
   const {
     encodeCharacters,
     rotateNumber,
@@ -36,7 +38,7 @@ export const Controls = ({
   };
 
   return (
-    <section className="controls-container">
+    <section className={classes.container}>
       <button
         type="button"
         className="field button button-outline"

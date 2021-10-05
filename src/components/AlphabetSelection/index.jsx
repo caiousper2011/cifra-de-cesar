@@ -1,7 +1,9 @@
 import alphabets from '../../utils/alphabets';
 import { useCrypt } from '../../hooks/useCrypt';
+import useStyles from './styles';
 
 const AlphabetSelection = () => {
+  const classes = useStyles();
   const { setAlphabet } = useCrypt();
 
   const handleAlphabet = ({ target: { value } }) => {
@@ -10,7 +12,7 @@ const AlphabetSelection = () => {
 
   return (
     <select
-      className="field field-outline"
+      className={classes.select}
       type="text"
       id="alphabet-txt"
       onChange={handleAlphabet}

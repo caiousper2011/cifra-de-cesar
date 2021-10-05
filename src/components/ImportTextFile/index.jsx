@@ -1,7 +1,9 @@
 import { useCrypt } from '../../hooks/useCrypt';
 import { useNotification } from '../../hooks/useNotification';
+import useStyles from './styles';
 
 const ImportTextFile = ({ setDecodeText, setEncodeText }) => {
+  const classes = useStyles();
   const { showError, showSuccess } = useNotification();
   const { encodeCharacters } = useCrypt();
 
@@ -40,6 +42,7 @@ const ImportTextFile = ({ setDecodeText, setEncodeText }) => {
         importar texto
       </label>
       <input
+        className={classes.input}
         type="file"
         id="input-import-file"
         accept=".txt"

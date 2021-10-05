@@ -77,20 +77,6 @@ input.field-outline:focus {
   padding: 0 calc(var(--spacing) * 4);
 }
 
-/* body > div > header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  padding: calc(var(--spacing) * 2);
-  background: var(--purple-400);
-  color: var(--white);
-  box-shadow: var(--elevation-3);
-} */
-
 body > div > main {
   display: flex;
   width: 100vw;
@@ -121,93 +107,6 @@ main.content {
   width: 100%;
   height: 400px;
   gap: calc(var(--spacing) * 2);
-}
-
-section.text-container {
-  flex: 1;
-  max-width: 500px;
-  height: 90%;
-  max-height: 400px;
-  overflow: hidden;
-}
-
-section.text-container,
-.controls-container {
-  background: var(--paper);
-  border-radius: var(--shape);
-  box-shadow: var(--elevation-3);
-}
-
-.text-container header,
-.controls-container header {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 60px;
-  background: var(--background);
-  font-size: 1.2rem;
-  color: var(--purple-100);
-}
-
-.text-container textarea {
-  background: transparent;
-  border: none;
-  width: 100%;
-  height: 100%;
-  resize: none;
-  color: var(--purple-400);
-  font-size: 0.8rem;
-  margin: 0px;
-  padding: 8px;
-  outline: none;
-  font-family: 'Roboto Mono', monospace;
-  text-transform: uppercase;
-}
-
-section.controls-container {
-  display: flex;
-  flex-direction: column;
-  height: 140px;
-  background: var(--paper);
-  align-self: center;
-  transform: translateY(-20px);
-  width: 48px;
-  border-radius: var(--shape);
-}
-
-section.controls-container > * {
-  flex: 1;
-  border: none;
-  border-radius: 0;
-}
-
-section.controls-container > .button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
-}
-
-section.controls-container > * + * {
-  border-top: solid 1px var(--purple-400);
-}
-
-section.alphabet-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background-color: var(--paper);
-  width: 100%;
-  padding: var(--spacing) calc(var(--spacing) * 2);
-  display: flex;
-  justify-content: space-between;
-  gap: var(--spacing);
-}
-
-section.alphabet-container > select {
-  flex: 1;
-  text-transform: initial;
 }
 
 section.alphabet-container > #input-import-file {

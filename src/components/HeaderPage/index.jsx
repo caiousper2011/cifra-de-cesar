@@ -8,10 +8,14 @@ export const HeaderPage = () => {
 
   return (
     <header className={classes.container}>
-      <Typography variant="h1" className={classes.title}>
+      <Typography variant="h2" className={classes.title}>
         Encriptador Cifra de Cesar
       </Typography>
-      <Typography variant="h6">
+      <Typography
+        variant="subtitle1"
+        className={classes.subtitle}
+        color="secondary"
+      >
         Criptografe facilmente seus textos com apenas um clique!
       </Typography>
     </header>

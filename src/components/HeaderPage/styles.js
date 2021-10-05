@@ -9,6 +9,6 @@ export default createUseStyles((theme) => ({
     margin: `${theme.spacing(6)} 0`,
   },
   title: {
-    marginBottom: '0.8rem',
+    fontWeight: 500,
   },
 }));

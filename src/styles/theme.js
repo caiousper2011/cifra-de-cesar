@@ -3,6 +3,9 @@ export const theme = {
     blue: '#0767ff',
   },
   color: {
+    textPrimary: '#ffffff',
+    textSecondary: '#ff72a3',
+    textAccent: '#fe0056',
     white: '#ffffff',
     purple: {
       100: '#f7c6d7',

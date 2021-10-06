@@ -1,6 +1,19 @@
 import { createUseStyles } from 'react-jss';
 
 export default createUseStyles((theme) => ({
+  '@global': {
+    '*,html': {
+      margin: 0,
+      padding: 0,
+      boxSizing: 'border-box',
+      color: 'red',
+    },
+    body: {
+      overflowX: 'hidden',
+      fontFamily: theme.font.main,
+      background: theme.background.blue,
+    },
+  },
   container: {
     maxWidth: theme.maxContainerWidth.lg,
     margin: 'auto',

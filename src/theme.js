@@ -7,6 +7,7 @@ export const theme = {
     textSecondary: '#ff72a3',
     textAccent: '#fe0056',
     white: '#ffffff',
+    black: '#242424',
     purple: {
       100: '#f7c6d7',
       200: '#ff72a3',

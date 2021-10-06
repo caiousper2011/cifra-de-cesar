@@ -1,5 +1,5 @@
 import { ThemeProvider } from 'react-jss';
-import { theme } from '../styles/theme';
+import { theme } from '../theme';
 import { CryptProvider } from './CryptContext';
 import { NotificationProvider } from './NotificationContext';
 

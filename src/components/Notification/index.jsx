@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react';
+import classNames from 'classnames';
 import { useNotification } from '../../hooks/useNotification';
+import useStyles from './styles';
 
 const CLOSE_DELAY = 5000;
 
 export const Notification = () => {
+  const classes = useStyles();
+
   const { notification, notificationType, hideNotification } =
     useNotification();
   const [hideNotificationClass, setHideNotificationClass] = useState('');
@@ -23,9 +27,12 @@ export const Notification = () => {
     <>
       {notification && (
         <div
-          className={`notification-container ${notificationType} ${
-            hideNotificationClass || 'show'
-          }`}
+          className={classNames({
+            [classes.container]: true,
+            [notificationType]: true,
+            show: !hideNotificationClass,
+            [hideNotificationClass]: hideNotificationClass,
+          })}
         >
           {notification}
         </div>

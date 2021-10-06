@@ -6,7 +6,6 @@ export default createUseStyles((theme) => ({
       margin: 0,
       padding: 0,
       boxSizing: 'border-box',
-      color: 'red',
     },
     body: {
       overflowX: 'hidden',
